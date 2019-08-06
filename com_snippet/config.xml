@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+	<fieldset name="global" label="JGLOBAL_FIELDSET_OPTIONS">
+		<field name="filesave" type="radio" label="COM_SNIPPET_PRM_FILESAVE" default="0" class="btn-group">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field name="folderpath" type="folderlist" label="COM_SNIPPET_PRM_FOLDER" directory="" default="files" recursive="true" hide_default="true" requred="true" showon="filesave:1"
+			exclude="(/admin.*)|(/component.*)|(/bin.*)|(/cli.*)|(/includes.*)|(/layouts.*)|(/language.*)|(/libraries.*)|(/media.*)|(/modules.*)|(/plugins.*)|(/templates.*)" />
+	</fieldset>
+	<fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
+		<field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL" class="inputbox" validate="rules" filter="rules" component="com_snippet" section="component"/>
+	</fieldset>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<extension type="plugin" version="3.9.0" method="upgrade" group="snippetimpex">
+    <name>PLG_SNIPPETIMPEX_JSON</name>
+    <version>1.0.0</version>
+    <creationDate>August 2019</creationDate>
+    <author>Aleksey A. Morozov</author>
+    <authorEmail>alekvolsk@yandex.ru</authorEmail>
+    <authorUrl>https://alekvolsk.pw</authorUrl>
+    <copyright>© 2019 Aleksey A. Morozov. All right reserved.</copyright>
+    <license>GNU General Public License version 3 or later; see http://www.gnu.org/licenses/gpl-3.0.txt</license>
+    <description>PLG_SNIPPETIMPEX_JSON_DESC</description>
+    <scriptfile>script.php</scriptfile>
+    <files>
+        <filename plugin="json">json.php</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.plg_snippetimpex_json.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.plg_snippetimpex_json.sys.ini</language>
+        <language tag="ru-RU">language/ru-RU/ru-RU.plg_snippetimpex_json.ini</language>
+        <language tag="ru-RU">language/ru-RU/ru-RU.plg_snippetimpex_json.sys.ini</language>
+    </languages>
+</extension>

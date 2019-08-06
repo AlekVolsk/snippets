@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<extension type="component" version="3.9.0" method="upgrade">
+    <name>COM_SNIPPET</name>
+    <version>1.0.0</version>
+    <creationDate>August 2019</creationDate>
+    <author>Aleksey A. Morozov</author>
+    <authorEmail>alekvolsk@yandex.ru</authorEmail>
+    <authorUrl>https://alekvolsk.pw</authorUrl>
+    <copyright>© 2019 Aleksey A. Morozov. All right reserved.</copyright>
+    <license>GNU General Public License version 3 or later; see http://www.gnu.org/licenses/gpl-3.0.txt</license>
+    <description>COM_SNIPPET_DESC</description>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+    <administration>
+        <menu>COM_SNIPPET</menu>
+        <files folder="admin">
+            <filename>snippet.php</filename>
+            <filename>controller.php</filename>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <folder>controllers</folder>
+            <folder>layouts</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="admin">
+            <language tag="en-GB">language/en-GB/en-GB.com_snippet.ini</language>
+            <language tag="en-GB">language/en-GB/en-GB.com_snippet.sys.ini</language>
+            <language tag="ru-RU">language/ru-RU/ru-RU.com_snippet.ini</language>
+            <language tag="ru-RU">language/ru-RU/ru-RU.com_snippet.sys.ini</language>
+        </languages>
+    </administration>
+</extension>

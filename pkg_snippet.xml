@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9" type="package" method="upgrade">
+    <name>PKG_SNIPPET</name>
+    <packagename>snippet</packagename>
+    <version>1.0.0</version>
+    <creationDate>August 2019</creationDate>
+    <author>Aleksey A. Morozov</author>
+    <authorEmail>alekvolsk@yandex.ru</authorEmail>
+    <authorUrl>https://alekvolsk.pw</authorUrl>
+    <copyright>© 2019 Aleksey A. Morozov. All right reserved.</copyright>
+    <license>GNU General Public License version 3 or later; see http://www.gnu.org/licenses/gpl-3.0.txt</license>
+    <packager>Aleksey A. Morozov</packager>
+    <description>PKG_SNIPPET_DESC</description>
+    <scriptfile>pkg_script.php</scriptfile>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.pkg_snippet.sys.ini</language>
+		<language tag="ru-RU">language/ru-RU/ru-RU.pkg_snippet.sys.ini</language>
+	</languages>
+    <files>
+        <file type="component" id="com_snippet">com_snippet.zip</file>
+        <file type="plugin" group="system" id="snippet">plg_system_snippet.zip</file>
+        <file type="plugin" group="editors-xtd" id="snippet">plg_editors-xtd_snippet.zip</file>
+        <file type="plugin" group="snippetimpex" id="csv">plg_snippetimpex_csv.zip</file>
+        <file type="plugin" group="snippetimpex" id="json">plg_snippetimpex_json.zip</file>
+    </files>
+</extension>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<extension type="plugin" version="3.9.0" method="upgrade" group="snippetimpex">
+    <name>PLG_SNIPPETIMPEX_CSV</name>
+    <version>1.0.0</version>
+    <creationDate>August 2019</creationDate>
+    <author>Aleksey A. Morozov</author>
+    <authorEmail>alekvolsk@yandex.ru</authorEmail>
+    <authorUrl>https://alekvolsk.pw</authorUrl>
+    <copyright>© 2019 Aleksey A. Morozov. All right reserved.</copyright>
+    <license>GNU General Public License version 3 or later; see http://www.gnu.org/licenses/gpl-3.0.txt</license>
+    <description>PLG_SNIPPETIMPEX_CSV_DESC</description>
+    <scriptfile>script.php</scriptfile>
+    <files>
+        <filename plugin="csv">csv.php</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.plg_snippetimpex_csv.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.plg_snippetimpex_csv.sys.ini</language>
+        <language tag="ru-RU">language/ru-RU/ru-RU.plg_snippetimpex_csv.ini</language>
+        <language tag="ru-RU">language/ru-RU/ru-RU.plg_snippetimpex_csv.sys.ini</language>
+    </languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="note" type="note" label="PLG_SNIPPETIMPEX_CSV_PRM_NOTE"/>
+                <field name="delimiter" type="radio" label="PLG_SNIPPETIMPEX_CSV_PRM_DELIMITER" default=";" class="btn-group">
+                    <option value=";">;</option>
+                    <option value=",">,</option>
+                </field>
+				<field name="bom" type="radio" label="PLG_SNIPPETIMPEX_CSV_PRM_BOM" default="1" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
