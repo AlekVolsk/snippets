@@ -23,4 +23,7 @@
         <file type="plugin" group="snippetimpex" id="csv">plg_snippetimpex_csv.zip</file>
         <file type="plugin" group="snippetimpex" id="json">plg_snippetimpex_json.zip</file>
     </files>
+    <updateservers>
+        <server type="extension" priority="2" name="Snippet package"><![CDATA[https://joomla-update.org/extensions/snippet/snippet_update.xml]]></server>
+    </updateservers>
 </extension>
