@@ -43,6 +43,8 @@ The component has 2 settings for impex plugins to work, affecting only export.
 
 When importing data files, they are temporarily stored in the temporary files folder Joomla! and after successful import are deleted from the server.
 
+---
+
 ### For developers
 
 Each plugin implements 2 events.
@@ -51,7 +53,7 @@ Each plugin implements 2 events.
 
 The data sent to the plugin for export and received from the plugin for import has a finished finished form in the form of an associated array, where the key is the name of the snippet, the key value is the content, which is a string. Nested arrays and objects in the form of content are not allowed. Matching keys are not allowed by the definition of associated arrays.
 
-The component controller is involved in transforming the snippet name into the form necessary for the system to work, the plug-in does not need to take care of this, but it is recommended.
+The component controller is involved in transforming the snippet name into the form necessary for the system to work, the plugin does not need to take care of this, but it is recommended.
 
 When exporting data by escaping content, the plugin does its own thing.
 
@@ -91,4 +93,4 @@ The plugin returns the structure as a standard object, where the following field
 - `(string)$message` — message about the operation of the plugin, if empty, means that the plugin did not perform any actions to export data
 - `(array)$data` — data array for subsequent import (described above), may be absent if the plugin fails
 
-#### The plugin, by definition, does not work with the database in the context of reading / writing snippet data — the component controller does this work. All that the plugin does is read and write files, send and receive an array of data.
+#### The plugin does not undertake the work of reading snippet data from the database or writing snippet data to the database — the component controller does this work. All that the plugin does is read and write files, send and receive an array of data.
