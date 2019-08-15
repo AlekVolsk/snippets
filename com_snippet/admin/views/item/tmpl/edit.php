@@ -47,6 +47,11 @@ Factory::getDocument()->addScriptDeclaration("
 						<div class="controls"><?php echo $this->form->getInput('content'); ?></div>
 					</div>
 
+					<div class="control-group">
+						<div class="control-label"><?php echo $this->form->getLabel('descript'); ?></div>
+						<div class="controls"><?php echo $this->form->getInput('descript'); ?></div>
+					</div>
+
 				</div>
 			</div>
 			<div class="span3">

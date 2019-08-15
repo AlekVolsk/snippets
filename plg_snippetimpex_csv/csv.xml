@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <extension type="plugin" version="3.9.0" method="upgrade" group="snippetimpex">
     <name>PLG_SNIPPETIMPEX_CSV</name>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <creationDate>August 2019</creationDate>
     <author>Aleksey A. Morozov</author>
     <authorEmail>alekvolsk@yandex.ru</authorEmail>

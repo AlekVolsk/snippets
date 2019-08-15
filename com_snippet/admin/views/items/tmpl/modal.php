@@ -81,7 +81,13 @@ if (!empty($editor)) {
 				<?php foreach ($this->items as $i => $item) { ?>
 				<tr class="row<?php echo $i % 2; ?>">
 					<td class="center"><span class="<?php echo 'icon-' . ($this->escape($item->published) ? '' : 'un') . 'publish'; ?>" aria-hidden="true"></span></td>
-					<td class="nowrap"><a class="select-snippet-link" href="javascript:void(0)" data-function="<?php echo $this->escape($onclick); ?>" data-name="<?php echo $this->escape($item->name); ?>"><?php echo $this->escape($item->name); ?></a></td>
+					<td class="nowrap">
+						<a class="select-snippet-link" href="javascript:void(0)" data-function="<?php echo $this->escape($onclick); ?>" data-name="<?php echo $this->escape($item->name); ?>"><?php echo $this->escape($item->name); ?></a>
+
+						<?php if ($item->descript) { ?>
+						<div class="small"><?php echo $this->escape($item->descript); ?></div>
+						<?php } ?>
+					</td>
 					<td><?php echo $this->mbCutString(htmlspecialchars(strip_tags($item->content)), 50); ?></td>
 					<td class="center hidden-phone"><?php echo (int)$item->id; ?></td>
 				</tr>

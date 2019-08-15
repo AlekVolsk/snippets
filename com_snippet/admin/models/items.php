@@ -35,7 +35,7 @@ class SnippetModelItems extends ListModel
 	protected function getListQuery()
 	{
 		$query = $this->getDbo()->getQuery(true)
-			->select('`id`, `published`, `name`, `content`')
+			->select('`id`, `published`, `name`, `content`, `descript`')
 			->from('#__snippets');
 
 		$published = $this->getState('filter.published');
@@ -46,7 +46,7 @@ class SnippetModelItems extends ListModel
 		$search = $this->getState('filter.search');
 		if (!empty($search)) {
 			$search = $this->getDbo()->Quote('%' . $this->getDbo()->escape($search, true) . '%');
-			$query->where('`name` like ' . $search);
+			$query->where('`name` like ' . $search . ' or `descript` like ' . $search);
 		}
 
 		$listOrder = $this->getState('list.ordering', '`name`');
@@ -67,7 +67,7 @@ class SnippetModelItems extends ListModel
 	public function getExpotData()
 	{
 		$query = $this->getDbo()->getQuery(true)
-			->select('`name`, `content`')
+			->select('`name`, `content`, `descript`')
 			->from('#__snippets');
 		return $this->getDbo()->setQuery($query)->loadObjectList();
 	}

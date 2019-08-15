@@ -73,18 +73,20 @@ class plgSnippetimpexCsv extends CMSPlugin
             $out->message = Text::_('PLG_SNIPPETIMPEX_CSV_UNKNOWN_CSV_DELIMITER');
             return $out;
         }
-        
+
         $out->result = true;
         $out->data = $data;
         $out->message = Text::_('PLG_SNIPPETIMPEX_CSV_IMPORT_SUCCESS');
         return $out;
     }
 
-    private function parseCsvFile($filename, $encodings = ['UTF-8', 'cp1251'], $colDelimiter = '', $rowDelimiter = "")
+    private function parseCsvFile($filename, $colDelimiter = '', $rowDelimiter = '', $encodings = ['UTF-8', 'cp1251'])
     {
         if (!file_exists($filename)) {
             return false;
         }
+
+        ini_set('auto_detect_line_endings', true);
 
         $cont = trim(file_get_contents($filename));
         $encoded_cont = mb_convert_encoding($cont, 'UTF-8', mb_detect_encoding($cont, $encodings));
@@ -116,9 +118,9 @@ class plgSnippetimpexCsv extends CMSPlugin
                 }
             }
 
-            if (!$colDelimiter) {
+            if ($colDelimiter === '') {
                 $delim_counts = [';' => [], ',' => []];
-                foreach ($lines30 as $line) {
+                foreach ($lines as $line) {
                     $delim_counts[','][] = substr_count($line, ',');
                     $delim_counts[';'][] = substr_count($line, ';');
                 }
@@ -139,10 +141,22 @@ class plgSnippetimpexCsv extends CMSPlugin
             unset($lines[$key]);
         }
         foreach ($data as $item) {
-            if (count($item) > 1) {
-                $out[$item[0]] = $item[1];
+            if (count($item) > 3) {
+                $out[$item[0]] = ['content' => $item[1], 'descript' => $item[2]];
             } else {
-                $out[$item[0]] = '';
+                switch (count($item)) {
+                    case 3:
+                        $out[$item[0]] = ['content' => $item[1], 'descript' => $item[2]];
+                        break;
+                    case 2:
+                        $out[$item[0]] = $item[1];
+                        break;
+                    case 1:
+                        $out[$item[0]] = '';
+                        break;
+                    case 0:
+                        break;
+                }
             }
         }
 
@@ -156,7 +170,11 @@ class plgSnippetimpexCsv extends CMSPlugin
                 fwrite($handle, "\xEF\xBB\xBF");
             }
             foreach ($data as $key => $item) {
-                $item = [$key, $item];
+                if (!is_array($item)) {
+                    $item = [$key, $item];
+                } else {
+                    $item = [$key, $item['content'], $item['descript']];
+                }
                 fputcsv($handle, $item, $delimiter);
             }
             fclose($handle);

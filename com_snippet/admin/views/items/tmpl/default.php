@@ -83,6 +83,10 @@ $listDirn = $this->escape($this->state->get('list.direction'));
 						<?php if ($this->canDo) { ?>
 						</a>
 						<?php } ?>
+
+						<?php if ($item->descript) { ?>
+						<div class="small"><?php echo $this->escape($item->descript); ?></div>
+						<?php } ?>
 					</td>
 					<td><?php echo $this->mbCutString(htmlspecialchars(strip_tags($item->content)), 100); ?></td>
 					<td class="center hidden-phone"><?php echo (int)$item->id; ?></td>

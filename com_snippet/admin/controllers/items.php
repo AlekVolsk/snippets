@@ -56,7 +56,7 @@ class SnippetControllerItems extends AdminController
 		}
 		$tmp = [];
 		foreach ($data as $item) {
-			$tmp[$item->name] = $item->content;
+			$tmp[$item->name] = ['content' => $item->content, 'descript' => $item->descript];
 		}
 		$data = $tmp;
 		unset($tmp);
@@ -233,20 +233,32 @@ class SnippetControllerItems extends AdminController
 		
 		$i = 0;
         $u = 0;
-        foreach ($data as $key => $value) {
+		foreach ($data as $key => $value) {
 			$key = str_replace('-', '_', OutputFilter::stringURLSafe($key));
 			if ($dbKeys && in_array($key, $dbKeys)) {
                 $rec = new stdClass();
                 $rec->id = $names[$key];
                 $rec->name = $key;
-                $rec->content = $value;
+				if (!is_array($value)) {
+					$rec->content = $value;
+					$rec->descript = '';
+				} else {
+					$rec->content = $value['content'];
+					$rec->descript = $value['descript'];
+				}
                 $db->updateObject('#__snippets', $rec, 'id');
                 unset($rec);
                 $u++;
             } else {
                 $rec = new stdClass();
                 $rec->name = $key;
-                $rec->content = $value;
+				if (!is_array($value)) {
+					$rec->content = $value;
+					$rec->descript = '';
+				} else {
+					$rec->content = $value['content'];
+					$rec->descript = $value['descript'];
+				}
                 $rec->published = 1;
                 $db->insertObject('#__snippets', $rec);
                 unset($rec);

@@ -1,7 +1,7 @@
 # Snippets
 
-![Version](https://img.shields.io/badge/version-1.0.0-28A5F5.svg?style=for-the-badge)
-![Last Update](https://img.shields.io/badge/last_update-2019.08.06-28A5F5.svg?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-1.1.0-28A5F5.svg?style=for-the-badge)
+![Last Update](https://img.shields.io/badge/last_update-2019.08.16-28A5F5.svg?style=for-the-badge)
 ![Joomla](https://img.shields.io/badge/joomla-3.9+-1A3867.svg?style=for-the-badge)
 ![Php](https://img.shields.io/badge/php-5.6+-8892BF.svg?style=for-the-badge)
 
@@ -51,7 +51,7 @@ Each plugin implements 2 events.
 
 #### Data structure
 
-The data sent to the plugin for export and received from the plugin for import have a complete finished form in the form of an associative arra, where the key is the name of the snippet, the key value is the content, which is a string. Nested arrays and objects in the form of content are not allowed. Matching keys are not allowed by the definition of associated arrays.
+The data sent to the plugin for export and received from the plugin for import has a finished finished form in the form of an associated array, where the key is the name of the snippet, the key value is either a content string or an associated array of two elements: `content` => content value, which is string; `descript` => snippet description, which is a string. Other nested arrays and objects in the form of content are not allowed. Matching keys are not allowed by the definition of associated arrays.
 
 The component controller is involved in transforming the snippet name into the form necessary for the system to work, the plugin does not need to take care of this, but it is recommended.
 
