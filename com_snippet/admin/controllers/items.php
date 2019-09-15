@@ -158,7 +158,6 @@ class SnippetControllerItems extends AdminController
 						} else {
 							$app->enqueueMessage(Text::sprintf('COM_SNIPPET_IMPORT_RESULT_EMPTY', $item->type), 'error');
 						}
-						$app->enqueueMessage(Text::sprintf('COM_SNIPPET_IMPORT_RESULT', $item->type, $item->message));
 					} else {
 						$app->enqueueMessage(Text::sprintf('COM_SNIPPET_IMPORT_RESULT_ERROR', $item->type, $item->message), 'error');
 					}

@@ -2,8 +2,8 @@
 <extension version="3.9" type="package" method="upgrade">
     <name>PKG_SNIPPET</name>
     <packagename>snippet</packagename>
-    <version>1.1.0</version>
-    <creationDate>August 2019</creationDate>
+    <version>1.1.1</version>
+    <creationDate>September 2019</creationDate>
     <author>Aleksey A. Morozov</author>
     <authorEmail>alekvolsk@yandex.ru</authorEmail>
     <authorUrl>https://alekvolsk.pw</authorUrl>
@@ -17,11 +17,11 @@
 		<language tag="ru-RU">language/ru-RU/ru-RU.pkg_snippet.sys.ini</language>
 	</languages>
     <files>
-        <file type="component" id="com_snippet">com_snippet.zip</file>
-        <file type="plugin" group="system" id="snippet">plg_system_snippet.zip</file>
-        <file type="plugin" group="editors-xtd" id="snippet">plg_editors-xtd_snippet.zip</file>
-        <file type="plugin" group="snippetimpex" id="csv">plg_snippetimpex_csv.zip</file>
-        <file type="plugin" group="snippetimpex" id="json">plg_snippetimpex_json.zip</file>
+        <folder type="component" id="com_snippet">com_snippet</folder>
+        <folder type="plugin" group="system" id="snippet">plg_system_snippet</folder>
+        <folder type="plugin" group="editors-xtd" id="snippet">plg_editors-xtd_snippet</folder>
+        <folder type="plugin" group="snippetimpex" id="csv">plg_snippetimpex_csv</folder>
+        <folder type="plugin" group="snippetimpex" id="json">plg_snippetimpex_json</folder>
     </files>
     <updateservers>
         <server type="extension" priority="2" name="Snippet package"><![CDATA[https://joomla-update.org/extensions/snippet/snippet_update.xml]]></server>

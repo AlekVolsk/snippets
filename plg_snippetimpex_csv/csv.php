@@ -80,7 +80,7 @@ class plgSnippetimpexCsv extends CMSPlugin
         return $out;
     }
 
-    private function parseCsvFile($filename, $colDelimiter = '', $rowDelimiter = '', $encodings = ['UTF-8', 'cp1251'])
+    private function parseCsvFile($filename, $colDelimiter = '', $rowDelimiter = '')
     {
         if (!file_exists($filename)) {
             return false;
@@ -89,17 +89,18 @@ class plgSnippetimpexCsv extends CMSPlugin
         ini_set('auto_detect_line_endings', true);
 
         $cont = trim(file_get_contents($filename));
-        $encoded_cont = mb_convert_encoding($cont, 'UTF-8', mb_detect_encoding($cont, $encodings));
-        unset($cont);
+        
+        // A special hack for Russian bastards who do not know how to save files in the correct encoding
+        $cont = strpos($cont, 'я') !== false ? $cont : mb_convert_encoding($cont, 'UTF-8', 'CP1251');
 
         if (!$rowDelimiter) {
             $rowDelimiter = "\r\n";
-            if (false === strpos($encoded_cont, "\r\n")) {
+            if (false === strpos($cont, "\r\n")) {
                 $rowDelimiter = "\n";
             }
         }
 
-        $lines = explode($rowDelimiter, trim($encoded_cont));
+        $lines = explode($rowDelimiter, trim($cont));
         $lines = array_filter($lines);
         $lines = array_map('trim', $lines);
 
